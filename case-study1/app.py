@@ -18,6 +18,16 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 
+# -------------------ROUTS--------------------------
+
+@app.route('/', methods = ['Get', 'POST'])
+def home():
+    return render_template("index.html")
+
+@app.route('/about', methods = ['Get', 'POST'])
+def about():
+    return render_template("about.html")
+
 
 
 #### dont code here
