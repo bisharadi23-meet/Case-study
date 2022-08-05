@@ -28,6 +28,9 @@ def home():
 def about():
     return render_template("about.html")
 
+@app.route('/contact', methods = ['Get', 'POST'])
+def contact():
+    return render_template("contact.html")
 
 
 #### dont code here
