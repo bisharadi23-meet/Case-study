@@ -12,7 +12,7 @@ config= {
   "storageBucket": "case-study-664d7.appspot.com",
   "messagingSenderId": "360541122608",
   "appId": "1:360541122608:web:fad092cf9abdf23e0ffdf5",
-  "measurementId": "G-SQ8GRL04S2"
+  "measurementId": "G-SQ8GRL04S2",
   "databaseURL": "https://case-study-664d7-default-rtdb.europe-west1.firebasedatabase.app/"}
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
