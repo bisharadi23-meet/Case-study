@@ -29,11 +29,31 @@ def home():
 @app.route('/about', methods = ['Get', 'POST'])
 def about():
     return render_template("about.html")
-    
+
 # contact page
 @app.route('/contact', methods = ['Get', 'POST'])
 def contact():
     return render_template("contact.html")
+
+# contact page
+@app.route('/comments', methods = ['Get', 'POST'])
+def comments():
+    return render_template("contact.html")
+
+# FAQ page
+@app.route('/faq', methods = ['Get', 'POST'])
+def faq():
+    return render_template("faq.html")
+
+# Blog home page
+@app.route('/blog_home', methods = ['Get', 'POST'])
+def blog_home():
+    return render_template("blog-home.html")
+
+# Blog post page
+@app.route('/blog_post', methods = ['Get', 'POST'])
+def blog_post():
+    return render_template("blog-post.html")
 
 
 #### dont code here
