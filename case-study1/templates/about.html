@@ -15,43 +15,39 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="/">BVinyle</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/logout">logout</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="/popstore">pop</a></li>
-                                <li><a class="dropdown-item" href="/rockstore">Rock</a></li>
-                                <li><a class="dropdown-item" href="/jazzstore">jazz</a></li>
-                                <li><a class="dropdown-item" href="/countrystore">country</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                        <a href = "/cart">
-                            <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                            </button>
-                        </a>
-                    
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/">Start Bootstrap</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
+                                    <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
+                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
         <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1> hello {{x}}</h1>
-                    <h1 class="display-4 fw-bolder">BVinyle</h1>
+                    <h1 class="display-4 fw-bolder">UKKO-News</h1>
                     <p class="lead fw-normal text-white-50 mb-0">some of our pop artists</p>
                 </div>
             </div>
@@ -63,17 +59,17 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0074/4095/7518/files/pop_music_wisdom_logo_495x.png?v=1544446220" alt="..." />
+                            <img class="card-img-top" src="https://static.wixstatic.com/media/feedb0_cd13fe257de044b28a3edb17f08a83d2~mv2.jpg/v1/crop/x_0,y_39,w_1028,h_678/fill/w_292,h_192,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/614082850.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">POP</h5>
+                                    <h5 class="fw-bolder">The Israeli Startup Trying to Reimagine Wheat</h5>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/popstore">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="https://www.haaretz.com/israel-news/tech-news/2021-04-14/ty-article-magazine/.premium/these-israelis-are-reprogramming-wheat-to-stop-celiac/0000017f-dbfb-db22-a17f-fffb7cfc0000">Read more</a></div>
                             </div>
                         </div>
                     </div>
@@ -82,28 +78,55 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://www.giorarecords.co.il/wp-content/uploads/product_images/0602567647577.jpg" alt="..." />
+                            <img class="card-img-top" src="https://static.wixstatic.com/media/feedb0_bf69099e44254569b31c4794ea257a0b~mv2.jpg/v1/fill/w_276,h_196,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/WCI_Facebook_Shared%2520Image_Free_edited_.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Bearboongs & bentleys</h5>
+                                    <h5 class="fw-bolder">World Changing Ideas Awards 2021: Health Finalists and Honorable Mentions</h5>
+                                  
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="https://www.fastcompany.com/90619564/world-changing-ideas-awards-2021-health-finalists-and-honorable-mentions">Read more</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://static.wixstatic.com/media/feedb0_0b50be9bbfe04de5a67e74d89eb257ae~mv2.jpg/v1/crop/x_0,y_30,w_960,h_577/fill/w_329,h_196,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/https___specials-images_forbesimg_com_im.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Synthetic Biology Partners With Al to Delete Food Allergies</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="https://www.forbes.com/sites/johncumbers/2021/01/27/synthetic-biology-partners-with-ai-to-delete-food-allergies/?sh=36bd53ac6a09">Read more</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://static.wixstatic.com/media/feedb0_04eb965225b84137a3425501a9fa6f2b~mv2.jpg/v1/crop/x_0,y_101,w_3008,h_1797/fill/w_329,h_196,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/iStock-478892144%20(1).jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">BREAKING : Anti-allergy startup Ukko scores $40m in Bayer-led Serise B</h5>
                                     <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$60.00</span>
-                                    $40.00
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="https://agfundernews.com/ukko-anti-allergy-foodtech-startup-scores-40m-in-bayer-led-series-b">Read more</a></div>
                             </div>
                         </div>
                     </div>
@@ -112,80 +135,34 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://cdn4.vectorstock.com/i/1000x1000/17/23/lets-rock-music-print-graphic-design-with-guitar-vector-23381723.jpg" alt="..." />
+                            <img class="card-img-top" src="https://static.wixstatic.com/media/feedb0_c384288fd7ea4bf384913b03f7dd50f6~mv2.jpg/v1/crop/x_0,y_0,w_1600,h_955/fill/w_329,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/146A3257_websize.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Rock</h5>
+                                    <h5 class="fw-bolder">Salesfrce CEO, Bayer back biotech startup targeting 'good' gluten for celiac patient</h5>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/rockstore">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="https://www.bizjournals.com/bizwomen/news/latest-news/2021/01/celiac-disease-peanut-allergy-benioff-bayer-ukko.html?page=all">Read more</a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71JZDiN8BEL._SL1500_.jpg" alt="..." />
+                            <img class="card-img-top" src="https://static.wixstatic.com/media/feedb0_caacc36787ff44fd965ec309d32afb3e~mv2.jpg/v1/crop/x_38,y_0,w_1205,h_720/fill/w_329,h_196,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/ukko2.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Recovery</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    $40.00
+                                    <h5 class="fw-bolder">Anti-allergy startup Ukko scores $40m in Bayer-led Series B</h5>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://thumbs.dreamstime.com/b/jazz-music-logo-saxophone-player-classic-silhouette-jazz-logo-design-vector-illustration-jazz-music-logo-saxophone-225398365.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Jazz</h5>
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/jazzstore">View options</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://i.pinimg.com/736x/a3/03/02/a30302da6060b6bea4c2c58d36f0dd49.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">country</h5>
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/countrystore">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/countrystore">Read more</a></div>
                             </div>
                         </div>
                     </div>
