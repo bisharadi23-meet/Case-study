@@ -33,6 +33,16 @@ def about():
 # contact page
 @app.route('/contact', methods = ['Get', 'POST'])
 def contact():
+    error = ""
+    if request.method == 'POST':
+        email = request.form['email']
+        full_name = request.form['full_name']
+        message = request.form['message']
+        msg = {"name": full_name, "email": email, "message": message}
+        try:
+            db.child("Comments").push(msg)
+        except:
+            error = "Adding message fail"
     return render_template("contact.html")
 
 # contact page
