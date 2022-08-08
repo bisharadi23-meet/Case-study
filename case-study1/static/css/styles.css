@@ -603,6 +603,17 @@ progress {
   height: auto;
 }
 
+#leftside{
+  height: 400px;
+  width: 500px;
+}
+
+#rightside{
+  height: 400px;
+  width: 500px;
+}
+
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -1389,8 +1400,11 @@ progress {
 
   .col-lg-6 {
     flex: 0 0 auto;
-    width: 50%;
-  }
+    width:50%;
+    
+  } 
+
+
 
   .col-lg-7 {
     flex: 0 0 auto;
