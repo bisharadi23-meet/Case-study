@@ -76,6 +76,12 @@
   }
 }
 
+#pics{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -537,13 +543,13 @@ progress {
 }
 
 .display-5 {
-  font-size: calc(1.425rem + 2.1vw);
-  font-weight: 300;
+  font-size: calc(1rem + 2.1vw);
+  font-weight: 200;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-5 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 
