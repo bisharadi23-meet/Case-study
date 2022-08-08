@@ -41,6 +41,7 @@ def contact():
         msg = {"name": full_name, "email": email, "message": message}
         try:
             db.child("Comments").push(msg)
+            return rentder_template("contact.html", comments = db.child("Comments").get().val())
         except:
             error = "Adding message fail"
     return render_template("contact.html")
