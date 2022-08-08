@@ -20,14 +20,17 @@ db = firebase.database()
 
 # -------------------ROUTS--------------------------
 
+# home page
 @app.route('/', methods = ['Get', 'POST'])
 def home():
     return render_template("index.html")
 
+# about page 
 @app.route('/about', methods = ['Get', 'POST'])
 def about():
     return render_template("about.html")
-
+    
+# contact page
 @app.route('/contact', methods = ['Get', 'POST'])
 def contact():
     return render_template("contact.html")
