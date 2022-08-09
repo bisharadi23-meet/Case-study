@@ -40,8 +40,9 @@ def contact():
         email = request.form['email']
         full_name = request.form['full_name']
         message = request.form['message']
-        time = datetime.datetime.now()
+        time = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         msg = {"name": full_name, "email": email, "message": message, "time" : time}
+        print(msg)
         try:
             db.child("Comments").push(msg)
             return render_template("contact.html", comments = db.child("Comments").get().val())
