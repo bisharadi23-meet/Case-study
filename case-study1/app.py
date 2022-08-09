@@ -40,7 +40,7 @@ def contact():
         email = request.form['email']
         full_name = request.form['full_name']
         message = request.form['message']
-        time = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+        time = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M")
         msg = {"name": full_name, "email": email, "message": message, "time" : time}
         print(msg)
         try:
