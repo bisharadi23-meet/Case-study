@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import session as login_session
 import pyrebase
+import datetime
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'super-secret-key'
@@ -39,7 +40,8 @@ def contact():
         email = request.form['email']
         full_name = request.form['full_name']
         message = request.form['message']
-        msg = {"name": full_name, "email": email, "message": message}
+        time = datetime.datetime.now()
+        msg = {"name": full_name, "email": email, "message": message, "time" : time}
         try:
             db.child("Comments").push(msg)
             return render_template("contact.html", comments = db.child("Comments").get().val())
