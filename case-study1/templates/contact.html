@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content />
         <meta name="author" content />
-        <title>UKKO-About</title>
+        <title>UKKO-Reviews</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -43,7 +43,7 @@
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                            <h1 class="fw-bolder">Get in touch</h1>
+                            <h1 class="fw-bolder">Feedback</h1>
                             <p class="lead fw-normal text-muted mb-0">We'd love to hear from you</p>
                         </div>
                         <div class="row gx-5 justify-content-center">
@@ -104,16 +104,16 @@
 
 
                     <div>
-                        <h1 class="fw-bolder" align = "center">Comments Section</h1>
+                        <h1 class="fw-bolder" align = "center">Reviews Section</h1>
                         <section class="py-5">
                 <div class="container px-5">
-                    <h2 class="fw-bolder fs-5 mb-4">Featured Stories</h2>
+                    <h2 class="fw-bolder fs-5 mb-4">Featured Reviews</h2>
                     <div class="row gx-5">
                         {% for comment in comments %}
                         <div class="col-lg-4 mb-5">
                             <div class="card h-100 shadow border-0">
                                 <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Comment</div>
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Review</div>
                                     <!--a class="text-decoration-none link-dark stretched-link" href="#!"><div class="h5 card-title mb-3">Blog post title</div></a!-->
                                     <p class="card-text mb-0">{{comments[comment]['message']}}</p>
                                 </div>
@@ -123,7 +123,7 @@
                                             <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                             <div class="small">
                                                 <div class="fw-bold">{{comments[comment]['name']}}</div>
-                                                <div class="text-muted">March 12, 2022 &middot; 6 min read</div>
+                                                <div class="text-muted">{{comments[comment]['time']}}</div>
                                             </div>
                                         </div>
                                     </div>
