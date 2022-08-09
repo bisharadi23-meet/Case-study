@@ -42,7 +42,7 @@ def contact():
         msg = {"name": full_name, "email": email, "message": message}
         try:
             db.child("Comments").push(msg)
-            return render_template("contact.html", comments = db.child("Comments").get().val())
+            return redirect(url_for('contact'))
         except:
             error = "Adding message fail"
     if db.child("Comments").get().val() != None:
