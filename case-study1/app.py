@@ -45,7 +45,9 @@ def contact():
             return render_template("contact.html", comments = db.child("Comments").get().val())
         except:
             error = "Adding message fail"
-    return render_template("contact.html", comments = db.child("Comments").get().val())
+    if db.child("Comments").get().val() != None:
+        return render_template("contact.html", comments = db.child("Comments").get().val())
+    return render_template("contact.html")
 
 # contact page
 @app.route('/comments', methods = ['Get', 'POST'])
