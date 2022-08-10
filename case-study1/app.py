@@ -53,19 +53,27 @@ def contact():
     return render_template("contact.html")
 
 # admin page
-@app.route('/adminlogin/<string:comment>', methods = ['Get', 'POST'])
-def ukkoadmin(comment):
+@app.route('/remove/<string:comment>', methods = ['Get', 'POST'])
+def adminlogin(comment):
     error = ""
     if request.method == 'POST':
         try:
             db.child("Comments").child(comment).remove()
-            redirect(url_for('adminlogin', comments = db.child("Comments").get().val()))
+            redirect(url_for('remove', comments = db.child("Comments").get().val()))
         except:
             error = "deleting failed"
     if db.child("Comments").get().val() != None:
         return render_template("admincomment.html", comments = db.child("Comments").get().val())
-    return render_template("admin.html")
+    return render_template("admincomment.html")
 
+
+@app.route('/adminlogin', methods = ['Get', 'POST'])
+def adminlogin():
+    return render_template("login.html")
+
+@app.route('/adminlogin', methods = ['Get', 'POST'])
+def adminlogin():
+    return render_template("login.html", comments = db.child("Comments").get().val())
 
 # contact page
 @app.route('/comments', methods = ['Get', 'POST'])
