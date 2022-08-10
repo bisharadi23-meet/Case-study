@@ -24,6 +24,7 @@ db = firebase.database()
 # home page
 @app.route('/', methods = ['Get', 'POST'])
 def home():
+    login_session['user'] = None
     return render_template("index.html")
 
 # News page 
@@ -66,13 +67,16 @@ def admincomment():
 # admin page
 @app.route('/remove/<string:comment_id>', methods = ['Get', 'POST'])
 def remove(comment_id):
-    error = ""
-    try:
-        db.child("Comments").child(comment_id).remove()
-        return redirect(url_for('admin', comments = db.child("Comments").get().val()))
-    except:
-        error = "deleting failed"
-        return redirect(url_for('adminlogin'))
+    if login_session['user'] is not None:
+        error = ""
+        try:
+            db.child("Comments").child(comment_id).remove()
+            return redirect(url_for('admin', comments = db.child("Comments").get().val()))
+        except:
+            error = "deleting failed"
+            return redirect(url_for('adminlogin'))
+    return redirect(url_for('adminlogin'))
+
 
 
 @app.route('/adminlogin', methods = ['GET', 'POST'])
@@ -90,16 +94,18 @@ def adminlogin():
 
 @app.route('/admin', methods = ['Get', 'POST'])
 def admin():
-    error = ""
-    if request.method == 'POST':
-        try:
-            return redirect(url_for('remove', comment = db.child("Comments").get().val()))
-        except:
-            error = "deleting failed"
-            return render_template("admin.html", comments = db.child("Comments").get().val())
-    if db.child("Comments").get().val() != None:
-        return render_template("admincomment.html", comments = db.child("Comments").get().val())
-    return render_template("admincomment.html")
+    if login_session['user'] is not None:
+        error = ""
+        if request.method == 'POST':
+            try:
+                return redirect(url_for('remove', comment = db.child("Comments").get().val()))
+            except:
+                error = "deleting failed"
+                return render_template("admin.html", comments = db.child("Comments").get().val())
+        if db.child("Comments").get().val() != None:
+            return render_template("admincomment.html", comments = db.child("Comments").get().val())
+        return render_template("admincomment.html")
+    return redirect(url_for('adminlogin'))
 
 # contact page
 @app.route('/comments', methods = ['Get', 'POST'])
