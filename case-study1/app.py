@@ -79,8 +79,17 @@ def remove(comment_id):
     return render_template("login.html")
 
 
-@app.route('/adminlogin', methods = ['Get', 'POST'])
+@app.route('/adminlogin', methods = ['GET', 'POST'])
 def adminlogin():
+    error = ""
+    if request.method == 'POST':
+       email = request.form['email']
+       password = request.form['password']
+       try:
+            login_session['user'] = auth.sign_in_with_email_and_password(email, password)
+            return redirect(url_for('admin'))
+       except:
+           error = "Authentication failed"
     return render_template("login.html")
 
 @app.route('/admin', methods = ['Get', 'POST'])
