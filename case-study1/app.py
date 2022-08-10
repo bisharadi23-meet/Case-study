@@ -52,10 +52,19 @@ def contact():
         return render_template("contact.html", comments = db.child("Comments").get().val())
     return render_template("contact.html")
 
-#admin page
-@app.route('/AdminLogin', methods = ['Get', 'POST'])
-def login():
-    return render_template("login.html")
+# admin page
+@app.route('/ukkoadmin/<string:comment>', methods = ['Get', 'POST'])
+def ukkoadmin(comment):
+    error = ""
+    if request.method == 'POST':
+        try:
+            db.child("Comments").child(comment).remove()
+            redirect(url_for('ukkoadmin', comments = db.child("Comments").get().val()))
+        except:
+            error = "deleting failed"
+    if db.child("Comments").get().val() != None:
+        return render_template("admin.html", comments = db.child("Comments").get().val())
+    return render_template("admin.html")
 
 
 # contact page
