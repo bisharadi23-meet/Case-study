@@ -15,9 +15,20 @@
 	<title>admin page</title>
 </head>
 <body>
+     <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        </div>
+                         <h1 class="display-5 fw-bolder text-white mb-2">Hello Admin</h1>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                        </div>
+                    </div>
+                </div>
+            </header>
 <section class="py-5">
                 <div class="container px-5">
-                    <h2 class="fw-bolder fs-5 mb-4">Featured Reviews</h2>
+                    <h2 class="fw-bolder fs-5 mb-4">All Reviews</h2>
                     <div class="row gx-5">
                         {% for comment in comments %}
                         <div class="col-lg-4 mb-5">
