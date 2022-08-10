@@ -24,104 +24,107 @@ db = firebase.database()
 # home page
 @app.route('/', methods = ['Get', 'POST'])
 def home():
-    return render_template("index.html")
+	return render_template("index.html")
 
 # News page 
 @app.route('/News', methods = ['Get', 'POST'])
 def News():
-    return render_template("News.html")
+	return render_template("News.html")
 
 # contact page
 @app.route('/contact', methods = ['Get', 'POST'])
 def contact():
-    error = ""
-    if request.method == 'POST':
-        print("test")
-        email = request.form['email']
-        full_name = request.form['full_name']
-        message = request.form['message']
-        rating = request.form['rating']
-        time = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M")
+	error = ""
+	if request.method == 'POST':
+		print("test")
+		email = request.form['email']
+		full_name = request.form['full_name']
+		message = request.form['message']
+		try:
+			rating=request.form['rating']
+		except:
+			rating='none'
+		time = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M")
 
-        msg = {"name": full_name, "email": email, "message": message, 'user_rate' : rating, "time" : time}
-        print(msg)
-        try:
-            db.child("Comments").push(msg)
-            return redirect(url_for('contact'))
-        except:
-            error = "Adding message fail"
-    if db.child("Comments").get().val() != None:
-        return render_template("contact.html", comments = db.child("Comments").get().val())
-    
-    return render_template("contact.html")
+		msg = {"name": full_name, "email": email, "message": message, 'user_rate' : rating, "time" : time}
+		print(msg)
+		try:
+			db.child("Comments").push(msg)
+			return redirect(url_for('contact'))
+		except:
+			error = "Adding message fail"
+	if db.child("Comments").get().val() != None:
+		return render_template("contact.html", comments = db.child("Comments").get().val())
+	
+	return render_template("contact.html")
 
 
 #admin comment
 @app.route('/admincomment', methods = ['Get', 'POST'])
 def admincomment():
-    return render_template("admincomment.html")
+	return render_template("admincomment.html")
 
 
 
 # admin page
 @app.route('/remove/<string:comment_id>', methods = ['Get', 'POST'])
 def remove(comment_id):
-    error = ""
-    try:
-        db.child("Comments").child(comment_id).remove()
-        return redirect(url_for('admin', comments = db.child("Comments").get().val()))
-    except:
-        error = "deleting failed"
-        return redirect(url_for('adminlogin'))
+	error = ""
+	try:
+		db.child("Comments").child(comment_id).remove()
+		return redirect(url_for('admin', comments = db.child("Comments").get().val()))
+	except:
+		error = "deleting failed"
+		return redirect(url_for('adminlogin'))
 
 
 @app.route('/adminlogin', methods = ['GET', 'POST'])
 def adminlogin():
-    error = ""
-    if request.method == 'POST':
-       email = request.form['email']
-       password = request.form['password']
-       try:
-            login_session['user'] = auth.sign_in_with_email_and_password(email, password)
-            return redirect(url_for('admin', comments = db.child("Comments").get().val()))
-       except:
-           error = "Authentication failed"
-    return render_template("login.html")
+	error = ""
+	if request.method == 'POST':
+		email = request.form['email']
+		password = request.form['password']
+		try:
+			login_session['user'] = auth.sign_in_with_email_and_password(email, password)
+			return redirect(url_for('admin', comments = db.child("Comments").get().val()))
+		except:
+			error = "Authentication failed"
+	return render_template("login.html")
 
 @app.route('/admin', methods = ['Get', 'POST'])
 def admin():
-    error = ""
-    if request.method == 'POST':
-        try:
-            return redirect(url_for('remove', comment = db.child("Comments").get().val()))
-        except:
-            error = "deleting failed"
-            return render_template("admin.html", comments = db.child("Comments").get().val())
-    if db.child("Comments").get().val() != None:
-        return render_template("admincomment.html", comments = db.child("Comments").get().val())
-    return render_template("admincomment.html")
+	error = ""
+	if request.method == 'POST':
+		try:
+			return redirect(url_for('remove', comment = db.child("Comments").get().val()))
+		except:
+			error = "deleting failed"
+			return render_template("admin.html", comments = db.child("Comments").get().val())
+	if db.child("Comments").get().val() != None:
+		return render_template("admincomment.html", comments = db.child("Comments").get().val())
+	return render_template("admincomment.html")
 
 # contact page
 @app.route('/comments', methods = ['Get', 'POST'])
 def comments():
-    return render_template("contact.html")
+	return render_template("contact.html")
 
 # FAQ page
 @app.route('/faq', methods = ['Get', 'POST'])
 def faq():
-    return render_template("faq.html")
+	return render_template("faq.html")
 
 # Blog home page
 @app.route('/blog_home', methods = ['Get', 'POST'])
 def blog_home():
-    return render_template("blog-home.html")
+	return render_template("blog-home.html")
 
 # Blog post page
 @app.route('/blog_post', methods = ['Get', 'POST'])
 def blog_post():
-    return render_template("blog-post.html")
+	return render_template("blog-post.html")
 
 
 #### dont code here
 if __name__ == '__main__':
-    app.run(debug=True)
+	app.run(debug=True)
