@@ -52,6 +52,12 @@ def contact():
         return render_template("contact.html", comments = db.child("Comments").get().val())
     return render_template("contact.html")
 
+#admin page
+@app.route('/ukkoadmin', methods = ['Get', 'POST'])
+def admin():
+    return render_template("admin.html")
+
+
 # contact page
 @app.route('/comments', methods = ['Get', 'POST'])
 def comments():
