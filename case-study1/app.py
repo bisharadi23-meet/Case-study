@@ -53,7 +53,7 @@ def contact():
     return render_template("contact.html")
 
 #admin page
-@app.route('/ukkoadmin', methods = ['Get', 'POST'])
+@app.route('/AdminLogin', methods = ['Get', 'POST'])
 def admin():
     return render_template("admin.html")
 
