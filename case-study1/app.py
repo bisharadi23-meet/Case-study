@@ -40,8 +40,10 @@ def contact():
         email = request.form['email']
         full_name = request.form['full_name']
         message = request.form['message']
+        rating = request.form['rating']
         time = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M")
-        msg = {"name": full_name, "email": email, "message": message, "time" : time}
+
+        msg = {"name": full_name, "email": email, "message": message, 'user_rate' : rating, "time" : time}
         print(msg)
         try:
             db.child("Comments").push(msg)
@@ -50,6 +52,7 @@ def contact():
             error = "Adding message fail"
     if db.child("Comments").get().val() != None:
         return render_template("contact.html", comments = db.child("Comments").get().val())
+    
     return render_template("contact.html")
 #admin comment
 @app.route('/admincomment', methods = ['Get', 'POST'])
