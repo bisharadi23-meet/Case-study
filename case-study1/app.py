@@ -51,7 +51,10 @@ def contact():
     if db.child("Comments").get().val() != None:
         return render_template("contact.html", comments = db.child("Comments").get().val())
     return render_template("contact.html")
-
+#admin comment
+@app.route('/admincomment', methods = ['Get', 'POST'])
+def admincomment():
+    return render_template("admincomment.html")
 # admin page
 @app.route('/remove/<string:comment>', methods = ['Get', 'POST'])
 def adminlogin(comment):
