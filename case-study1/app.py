@@ -54,8 +54,8 @@ def contact():
 
 #admin page
 @app.route('/AdminLogin', methods = ['Get', 'POST'])
-def admin():
-    return render_template("admin.html")
+def login():
+    return render_template("login.html")
 
 
 # contact page
