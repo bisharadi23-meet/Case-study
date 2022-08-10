@@ -67,16 +67,12 @@ def admincomment():
 @app.route('/remove/<string:comment_id>', methods = ['Get', 'POST'])
 def remove(comment_id):
     error = ""
-    if request.method == 'POST':
-        try:
-            db.child("Comments").child(comment_id).remove()
-            return redirect(url_for('admin', comments = db.child("Comments").get().val()))
-        except:
-            error = "deleting failed"
-            return render_template("login.html")
-    if db.child("Comments").get().val() != None:
-        return render_template("login.html", comments = db.child("Comments").get().val())
-    return render_template("login.html")
+    try:
+        db.child("Comments").child(comment_id).remove()
+        return redirect(url_for('admin', comments = db.child("Comments").get().val()))
+    except:
+        error = "deleting failed"
+        return redirect(url_for('adminlogin'))
 
 
 @app.route('/adminlogin', methods = ['GET', 'POST'])
@@ -87,7 +83,7 @@ def adminlogin():
        password = request.form['password']
        try:
             login_session['user'] = auth.sign_in_with_email_and_password(email, password)
-            return redirect(url_for('admin'))
+            return redirect(url_for('admin', comments = db.child("Comments").get().val()))
        except:
            error = "Authentication failed"
     return render_template("login.html")
@@ -97,10 +93,10 @@ def admin():
     error = ""
     if request.method == 'POST':
         try:
-            return redirect(url_for('remove', comments = db.child("Comments").get().val()))
+            return redirect(url_for('remove', comment = db.child("Comments").get().val()))
         except:
             error = "deleting failed"
-            return render_template("admin.html")
+            return render_template("admin.html", comments = db.child("Comments").get().val())
     if db.child("Comments").get().val() != None:
         return render_template("admincomment.html", comments = db.child("Comments").get().val())
     return render_template("admincomment.html")
